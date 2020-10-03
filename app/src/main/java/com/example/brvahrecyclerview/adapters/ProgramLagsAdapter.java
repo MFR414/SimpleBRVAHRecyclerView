@@ -27,4 +27,6 @@ public class ProgramLagsAdapter extends BaseQuickAdapter<ProgramLags, BaseViewHo
                 .placeholder(R.drawable.ic_launcher_background)
                 .into((ImageView) baseViewHolder.getView(R.id.imgIconProgram));
     }
+
+
 }

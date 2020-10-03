@@ -1,5 +1,6 @@
 package com.example.brvahrecyclerview;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.chad.library.adapter.base.listener.OnItemLongClickListener;
 import com.example.brvahrecyclerview.adapters.ProgramLagsAdapter;
 import com.example.brvahrecyclerview.models.ProgramLags;
 
@@ -44,12 +47,28 @@ public class MainActivity extends AppCompatActivity {
                 "https://e7.pngegg.com/pngimages/621/411/png-clipart-computer-icons-python-anaconda-anaconda-angle-other-thumbnail.png"));
         listProgram.add(new ProgramLags("Java",
                 "https://e7.pngegg.com/pngimages/785/145/png-clipart-java-development-kit-software-development-kit-computer-programming-computer-icons-programming-language-icon-text-logo-thumbnail.png"));
+        listProgram.add(new ProgramLags("PHP",
+                "https://cdn.iconscout.com/icon/free/png-256/php-27-226042.png"));
+        listProgram.add(new ProgramLags("C++",
+                "https://e7.pngegg.com/pngimages/724/306/png-clipart-c-logo-c-programming-language-icon-letter-c-blue-logo-thumbnail.png"));
+        listProgram.add(new ProgramLags("C#",
+                "https://e7.pngegg.com/pngimages/520/669/png-clipart-c-logo-c-programming-language-computer-icons-computer-programming-programming-miscellaneous-blue-thumbnail.png"));
+        listProgram.add(new ProgramLags("Ruby",
+                "https://e7.pngegg.com/pngimages/779/338/png-clipart-ruby-on-rails-the-ruby-programming-language-computer-programming-ruby-angle-computer-programming-thumbnail.png"));
+        listProgram.add(new ProgramLags("CSS",
+                "https://e1.pngegg.com/pngimages/326/868/png-clipart-css3-badge-blue-and-white-css-icon-thumbnail.png"));
+        listProgram.add(new ProgramLags("TypeScript",
+                "https://cdn.iconscout.com/icon/free/png-256/typescript-1174965.png"));
+        listProgram.add(new ProgramLags("C",
+                "https://e7.pngegg.com/pngimages/724/306/png-clipart-c-logo-c-programming-language-icon-letter-c-blue-logo-thumbnail.png"));
+
+
+
         adapter = new ProgramLagsAdapter(R.layout.item_program_list,listProgram);
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new OnItemClickListener( ) {
             @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Log.d(TAG, "onItemClick: ");
-                Toast.makeText(ItemClickActivity.this, "onItemClick" + position, Toast.LENGTH_SHORT).show();
+            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
+                Toast.makeText(MainActivity.this, "" + listProgram.get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });
         layoutManager = new LinearLayoutManager(getApplicationContext());
