@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         listProgram.add(new ProgramLags("Java",
                 "https://e7.pngegg.com/pngimages/785/145/png-clipart-java-development-kit-software-development-kit-computer-programming-computer-icons-programming-language-icon-text-logo-thumbnail.png"));
         adapter = new ProgramLagsAdapter(R.layout.item_program_list,listProgram);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Log.d(TAG, "onItemClick: ");
+                Toast.makeText(ItemClickActivity.this, "onItemClick" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
         layoutManager = new LinearLayoutManager(getApplicationContext());
         rv.setAdapter(adapter);
         rv.setLayoutManager(layoutManager);
