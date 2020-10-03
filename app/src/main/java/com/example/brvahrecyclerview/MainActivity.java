@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(new OnItemClickListener( ) {
             @Override
             public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-                Toast.makeText(MainActivity.this, "" + listProgram.get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Name: " + listProgram.get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         });
         layoutManager = new LinearLayoutManager(getApplicationContext());
